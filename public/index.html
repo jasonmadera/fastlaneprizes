@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fast Lane Prizes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #111, #1e1e1e);
+      color: white;
+      text-align: center;
+    }
+    .container {
+      padding: 40px 20px;
+    }
+    img {
+      max-width: 90%;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .card {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    button {
+      background: #00ffcc;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #00ccaa;
+    }
+    .small {
+      font-size: 12px;
+      margin-top: 15px;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏁 Fast Lane Prizes</h1>
+    <div class="card">
+      <h2>2025 Benelli Motorcycle Raffle</h2>
+      <p>Only <strong>$10 per ticket</strong></p>
+
+      <!-- Replace with your motorcycle image URL later -->
+      <img src="https://via.placeholder.com/600x350?text=Benelli+Motorcycle" alt="Motorcycle"/>
+
+      <form action="/api/create-checkout-session" method="POST">
+        <button type="submit">Buy Ticket</button>
+      </form>
+
+      <p class="small">
+        🚨 No purchase necessary to enter. A free mail-in entry option is available.<br>
+        Winner will be chosen via a live drawing once all tickets are sold. Entrants will be emailed the drawing date and time.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
