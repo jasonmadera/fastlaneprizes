@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Success | FastLanePrizes</title>
+  <style>
+    body{margin:0;display:grid;place-items:center;min-height:100vh;font-family:system-ui;background:#020617;color:#fff}
+    .box{max-width:680px;padding:28px;border:1px solid #1f2937;border-radius:16px;background:#0b1220;text-align:center}
+    h1{color:#00ffcc;margin:0 0 8px}
+    p{color:#cbd5e1;line-height:1.6}
+    a{color:#00b3ff}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🎉 You’re entered!</h1>
+    <p>Check your email for your Stripe receipt.</p>
+    <p>You’ll receive another email with the <strong>live drawing</strong> date/time once entries are sold.</p>
+    <p><a href="/">Back to FastLanePrizes</a></p>
+  </div>
+</body>
+</html>

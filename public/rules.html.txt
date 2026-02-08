@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Official Rules | FastLanePrizes</title>
+  <style>
+    body{margin:0;font-family:system-ui;background:#020617;color:#fff}
+    .wrap{max-width:900px;margin:0 auto;padding:28px}
+    .card{background:#0b1220;border:1px solid #1f2937;border-radius:16px;padding:22px}
+    h1{color:#00b3ff;margin:0 0 10px}
+    h2{margin:18px 0 8px}
+    p,li{color:#cbd5e1;line-height:1.6}
+    strong{color:#fff}
+    a{color:#00b3ff}
+    code{background:#111827;padding:2px 6px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Official Rules — FastLanePrizes Sweepstakes</h1>
+
+      <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN. A PURCHASE DOES NOT INCREASE YOUR CHANCES OF WINNING.</strong></p>
+      <p>This promotion is intended as a <strong>sweepstakes</strong>. It is void where prohibited.</p>
+
+      <h2>1) Sponsor</h2>
+      <p>FastLanePrizes (“Sponsor”).</p>
+
+      <h2>2) Eligibility</h2>
+      <p>Open to legal U.S. residents age 18+ (or age of majority in their state). Void where prohibited.</p>
+
+      <h2>3) Promotion Period</h2>
+      <p>The promotion ends when the maximum number of entries is reached. Drawing information will be emailed to entrants.</p>
+
+      <h2>4) How to Enter</h2>
+      <p><strong>Online Entry:</strong> Enter by purchasing entries through the FastLanePrizes website at the posted price per entry.</p>
+
+      <p><strong>Free Mail-In Entry (No Purchase Necessary):</strong><br>
+      To enter without purchase, hand-print your full name, mailing address, email address, and phone number on a 3”x5” card and mail it in a stamped envelope to:</p>
+
+      <p>
+        <strong>FastLanePrizes Sweepstakes Entry</strong><br>
+        YOUR NAME / BUSINESS<br>
+        YOUR STREET ADDRESS<br>
+        CITY, TX ZIP
+      </p>
+
+      <p>Mail-in entries must be postmarked before the promotion ends and received prior to the drawing. Each valid mail-in entry counts as one (1) entry and has equal odds of winning as an online entry.</p>
+
+      <h2>5) Prize</h2>
+      <p>The current prize is listed on the FastLanePrizes homepage. Prize is awarded <strong>as-is</strong>. Winner is responsible for taxes, title/registration, insurance, pickup/delivery, and any other costs not explicitly stated.</p>
+
+      <h2>6) Winner Selection / Live Drawing</h2>
+      <p>A winner will be selected at random in a <strong>live drawing</strong> after entries are sold out (or when the promotion ends). Drawing date/time will be emailed to entrants.</p>
+
+      <h2>7) Odds</h2>
+      <p>Odds depend on the number of eligible entries received.</p>
+
+      <h2>8) Winner Notification</h2>
+      <p>Winner will be notified by email. If the winner does not respond within 48 hours, Sponsor may select an alternate winner.</p>
+
+      <h2>9) General Conditions</h2>
+      <p>Sponsor reserves the right to cancel, modify, or suspend the promotion if fraud, technical failures, or any other factor impairs integrity.</p>
+
+      <p><a href="/">Back to FastLanePrizes</a></p>
+
+      <p style="margin-top:16px;color:#94a3b8;font-size:12px;">
+        Legal note: Sweepstakes and “no purchase necessary” promotions can have state-specific requirements. Consider consulting a Texas attorney for final review.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

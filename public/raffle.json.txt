@@ -1,0 +1,28 @@
+{
+  "siteName": "FastLanePrizes",
+  "slug": "benelli-2025",
+  "prizeTitle": "2025 Benelli Motorcycle",
+  "prizeSubtitle": "Approx. 2,000 miles • Clean title • Ready to ride",
+  "ticketPriceUsd": 10,
+  "entryName": "Entry",
+  "heroTagline": "High-Performance Rides. One Lucky Winner.",
+  "drawingText": "There will be a LIVE drawing as soon as all entries are sold. An email will be sent with the date and time.",
+  "noPurchaseText": "NO PURCHASE NECESSARY TO ENTER OR WIN. A free mail-in entry method is available with equal odds.",
+  "maxEntriesNote": "Promotion ends when the maximum number of entries is reached.",
+  "images": [
+    "/assets/bike1.jpg",
+    "/assets/bike2.jpg"
+  ],
+  "ogImage": "/assets/og.jpg",
+  "rulesPath": "/rules",
+  "successPath": "/success",
+  "supportEmail": "info@fastlaneprizes.com",
+  "mailInAddress": {
+    "line1": "FastLanePrizes Sweepstakes Entry",
+    "line2": "YOUR NAME OR BUSINESS",
+    "line3": "YOUR STREET ADDRESS",
+    "line4": "CITY, TX ZIP"
+  },
+  "eligibility": "Open to legal U.S. residents age 18+ (or age of majority in their state). Void where prohibited.",
+  "winnerResponseHours": 48
+}
