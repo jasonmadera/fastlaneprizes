@@ -61,9 +61,22 @@
       <img src="/assets/bike2.jpg" alt="2025 Benelli Motorcycle"/>
 
 
-      <form action="/api/create-checkout-session" method="POST">
-        <button type="submit">Buy Ticket</button>
-      </form>
+      <button id="buyBtn" type="button">Buy Ticket</button>
+
+<script>
+  document.getElementById("buyBtn").addEventListener("click", async () => {
+    const res = await fetch("/create-checkout-session", { method: "POST" });
+    const data = await res.json();
+
+    if (!data.url) {
+      alert(data.error || "Checkout error");
+      return;
+    }
+
+    window.location.href = data.url;
+  });
+</script>
+
 
       <p class="small">
         🚨 No purchase necessary to enter. A free mail-in entry option is available.<br>
