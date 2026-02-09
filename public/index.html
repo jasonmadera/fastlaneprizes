@@ -4,116 +4,318 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fast Lane Prizes</title>
+
   <style>
-    body {
-      margin: 0;
+    :root{
+      --bg1:#0e0f12;
+      --bg2:#14161c;
+      --card:#1b1f27cc;
+      --border:#2a3240;
+      --text:#e9eef7;
+      --muted:#aeb7c6;
+      --accent:#00f0c8;
+      --accent2:#00caa7;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #111, #1e1e1e);
-      color: white;
-      text-align: center;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 50% 0%, rgba(0,240,200,.18), transparent 60%),
+        radial-gradient(900px 500px at 80% 30%, rgba(0,120,255,.12), transparent 60%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height:100vh;
     }
-    .container {
-      padding: 40px 20px;
+
+    header{
+      padding: 22px 18px 0;
+      text-align:center;
     }
-    img {
-      max-width: 90%;
-      border-radius: 12px;
-      margin: 20px 0;
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.5px;
+      font-size:34px;
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(0,240,200,.15);
     }
-    .card {
-      background: #222;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 500px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    .subtitle{
+      margin:8px 0 0;
+      color: var(--muted);
+      font-size:14px;
     }
-    h1 {
-      color: #00ffcc;
+
+    .wrap{
+      max-width: 980px;
+      margin: 18px auto 44px;
+      padding: 0 16px;
     }
-    button {
-      background: #00ffcc;
-      border: none;
-      padding: 12px 20px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .heroTitle{
+      margin:0 0 6px;
+      font-size:26px;
+      font-weight:800;
+    }
+    .heroLine{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size:14px;
+    }
+
+    .heroImg{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:block;
+      margin: 12px 0 14px;
+      max-height: 280px;
+      object-fit: cover;
+    }
+
+    .row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
       margin-top: 10px;
     }
-    button:hover {
-      background: #00ccaa;
+    label{
+      font-size:13px;
+      color: var(--muted);
     }
-    .small {
+    input[type="number"], input[type="text"], input[type="email"], textarea{
+      width: 100%;
+      background: rgba(10,12,16,.7);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+      outline:none;
+    }
+    input[type="number"]{ max-width: 140px; }
+    textarea{ min-height: 96px; resize: vertical; }
+
+    .priceHint{
+      color: var(--muted);
+      font-size: 13px;
+      margin-left: 6px;
+    }
+
+    .btn{
+      background: var(--accent);
+      color:#04110f;
+      border:none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow: 0 14px 35px rgba(0,240,200,.22);
+      transition: transform .08s ease, background .15s ease;
+    }
+    .btn:hover{ background: var(--accent2); }
+    .btn:active{ transform: translateY(1px); }
+
+    .small{
+      margin: 12px 0 0;
       font-size: 12px;
-      margin-top: 15px;
-      color: #bbb;
+      color: #b7c0ce;
+      line-height:1.4;
+    }
+
+    .sectionTitle{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight:800;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .gallery img{
+      width:100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .contactLine{
+      margin: 6px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .contactLine a{
+      color: var(--accent);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .contactLine a:hover{ text-decoration: underline; }
+
+    footer{
+      text-align:center;
+      color: rgba(255,255,255,.45);
+      font-size:12px;
+      padding: 18px 12px 32px;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>🏁 Fast Lane Prizes</h1>
-    <div class="card">
-      <h2>2025 Benelli Motorcycle Raffle</h2>
-      <p>Only <strong>$10 per ticket</strong></p>
+  <header>
+    <div class="brand">🏁 Fast Lane Prizes</div>
+    <p class="subtitle">Raffles • Giveaways • Community picks</p>
+  </header>
 
-      <!-- Replace with your motorcycle image URL later -->
-      <img src="/assets/bike2.jpg" alt="2025 Benelli Motorcycle"/>
+  <div class="wrap">
+    <div class="grid">
 
+      <!-- LEFT: MAIN RAFFLE CARD -->
+      <div class="card">
+        <h1 class="heroTitle">2025 Benelli Motorcycle Raffle</h1>
+        <p class="heroLine">Only <strong>$10</strong> per ticket</p>
 
-      <form id="checkoutForm">
-  <label style="display:block;margin:14px 0 8px;color:#bbb;font-size:14px;">
-    Number of Tickets
-  </label>
+        <!-- MAIN IMAGE -->
+        <img class="heroImg" src="/assets/bike.jpg" alt="2025 Benelli Motorcycle">
 
-  <div style="display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:14px;">
-    <input
-      id="qty"
-      type="number"
-      min="1"
-      max="100"
-      value="1"
-      style="width:110px;padding:10px;border-radius:10px;border:1px solid #333;background:#111;color:#fff;text-align:center;font-size:16px;"
-    />
-    <span style="color:#bbb;font-size:14px;">$10 each</span>
-  </div>
+        <div class="row">
+          <div style="min-width:220px;">
+            <label for="qty">Number of Tickets</label>
+            <input id="qty" type="number" min="1" max="50" value="1" />
+          </div>
+          <div class="priceHint">$10 each</div>
+        </div>
 
-  <button type="submit">Buy Tickets</button>
-</form>
+        <div class="row" style="margin-top:14px;">
+          <button id="buyBtn" class="btn" type="button">Buy Tickets</button>
+        </div>
 
-<script>
-document.getElementById("checkoutForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+        <p class="small">
+          🎟 No purchase necessary to enter. A free mail-in entry option is available.<br>
+          Winner will be chosen via a live drawing once all tickets are sold.
+          Entrants will be emailed the drawing date and time.
+        </p>
 
-    let qty = parseInt(document.getElementById("qty").value || "1", 10);
-    if (isNaN(qty) || qty < 1) qty = 1;
-    if (qty > 100) qty = 100;
+        <p class="contactLine" style="margin-top:14px;">
+          Questions? Email us: <a href="mailto:fastlaneprizes1@gmail.com">fastlaneprizes1@gmail.com</a>
+        </p>
+      </div>
 
-    const res = await fetch("/create-checkout-session"
-, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ qty })
-    });
+      <!-- RIGHT: GALLERY + SUGGEST A PRIZE -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+          <h2 class="sectionTitle" style="margin:0;">More Giveaways</h2>
+          <span style="color:var(--muted); font-size:12px;">(examples)</span>
+        </div>
 
-    const data = await res.json();
+        <div class="gallery" style="margin-top:12px;">
+          <img src="/assets/prize1.jpg" alt="Prize idea 1">
+          <img src="/assets/prize2.jpg" alt="Prize idea 2">
+        </div>
 
-    if (data.error) {
-        alert(data.error || "Checkout error");
-        return;
-    }
+        <hr style="border:none; border-top:1px solid rgba(255,255,255,.10); margin:16px 0;">
 
-    window.location.href = data.url;
-});
-</script>
+        <h2 class="sectionTitle">Suggest a Prize</h2>
+        <p class="heroLine" style="margin-top:0;">
+          Want us to raffle something next? Send your idea to us.
+        </p>
 
+        <label for="name">Your name (optional)</label>
+        <input id="name" type="text" placeholder="Jason" />
 
+        <div style="height:10px;"></div>
 
-      <p class="small">
-        🚨 No purchase necessary to enter. A free mail-in entry option is available.<br>
-        Winner will be chosen via a live drawing once all tickets are sold. Entrants will be emailed the drawing date and time.
-      </p>
+        <label for="email">Your email (optional)</label>
+        <input id="email" type="email" placeholder="you@example.com" />
+
+        <div style="height:10px;"></div>
+
+        <label for="idea">Prize suggestion</label>
+        <textarea id="idea" placeholder="Example: PS5, Yeti cooler, tool set, concert tickets..."></textarea>
+
+        <div class="row" style="margin-top:12px;">
+          <button id="suggestBtn" class="btn" type="button">Send Suggestion</button>
+        </div>
+
+        <p class="small">
+          Or just email us anytime: <a href="mailto:fastlaneprizes1@gmail.com" style="color:var(--accent); font-weight:700;">fastlaneprizes1@gmail.com</a>
+        </p>
+      </div>
     </div>
   </div>
+
+  <footer>
+    © Fast Lane Prizes • Contact: fastlaneprizes1@gmail.com
+  </footer>
+
+  <script>
+    // BUY BUTTON -> Calls your Cloudflare Function and sends quantity
+    document.getElementById('buyBtn').addEventListener('click', async () => {
+      const qty = Math.max(1, Math.min(50, parseInt(document.getElementById('qty').value || '1', 10)));
+
+      const res = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ quantity: qty })
+      });
+
+      const data = await res.json();
+
+      if (!data.url) {
+        alert(data.error || 'Checkout error');
+        return;
+      }
+
+      window.location.href = data.url;
+    });
+
+    // SUGGESTION BUTTON -> opens a pre-filled email to fastlaneprizes1@gmail.com
+    document.getElementById('suggestBtn').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const idea = document.getElementById('idea').value.trim();
+
+      if (!idea) {
+        alert('Please type a prize suggestion first 🙂');
+        return;
+      }
+
+      const subject = encodeURIComponent('Fast Lane Prizes - Prize Suggestion');
+      const body = encodeURIComponent(
+        `Prize suggestion:\n${idea}\n\n` +
+        `Name: ${name || '(not provided)'}\n` +
+        `Email: ${email || '(not provided)'}\n`
+      );
+
+      window.location.href = `mailto:fastlaneprizes1@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
