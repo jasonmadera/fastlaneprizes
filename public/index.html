@@ -61,21 +61,51 @@
       <img src="/assets/bike2.jpg" alt="2025 Benelli Motorcycle"/>
 
 
-      <button id="buyBtn" type="button">Buy Ticket</button>
+      <form id="checkoutForm">
+  <label style="display:block;margin:14px 0 8px;color:#bbb;font-size:14px;">
+    Number of Tickets
+  </label>
+
+  <div style="display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:14px;">
+    <input
+      id="qty"
+      type="number"
+      min="1"
+      max="100"
+      value="1"
+      style="width:110px;padding:10px;border-radius:10px;border:1px solid #333;background:#111;color:#fff;text-align:center;font-size:16px;"
+    />
+    <span style="color:#bbb;font-size:14px;">$10 each</span>
+  </div>
+
+  <button type="submit">Buy Tickets</button>
+</form>
 
 <script>
-  document.getElementById("buyBtn").addEventListener("click", async () => {
-    const res = await fetch("/create-checkout-session", { method: "POST" });
+document.getElementById("checkoutForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let qty = parseInt(document.getElementById("qty").value || "1", 10);
+    if (isNaN(qty) || qty < 1) qty = 1;
+    if (qty > 100) qty = 100;
+
+    const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ qty })
+    });
+
     const data = await res.json();
 
-    if (!data.url) {
-      alert(data.error || "Checkout error");
-      return;
+    if (data.error) {
+        alert(data.error || "Checkout error");
+        return;
     }
 
     window.location.href = data.url;
-  });
+});
 </script>
+
 
 
       <p class="small">
