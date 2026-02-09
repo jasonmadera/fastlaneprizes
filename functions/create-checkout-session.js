@@ -1,34 +1,31 @@
-export async function onRequestPost(context) {
-  const { request, env } = context;
+import Stripe from "stripe";
 
+export async function onRequestPost({ request, env }) {
   try {
-    const stripeRes = await fetch("https://api.stripe.com/v1/checkout/sessions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        mode: "payment",
-        "line_items[0][price]": env.STRIPE_PRICE_ID,
-        "line_items[0][quantity]": "1",
-        customer_creation: "always",
-        success_url: `${env.SITE_URL}/success.html`,
-        cancel_url: `${env.SITE_URL}/`,
-      }).toString(),
+    const stripe = new Stripe(env.STRIPE_SECRET_KEY);
+
+    // This is the safest way on Cloudflare Pages:
+    const origin = new URL(request.url).origin;
+
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: [
+        {
+          price: env.STRIPE_PRICE_ID,
+          quantity: 1,
+        },
+      ],
+      success_url: `${origin}/success.html`,
+      cancel_url: `${origin}/`,
     });
 
-    const data = await stripeRes.json();
-
-    if (!stripeRes.ok) {
-      return new Response(JSON.stringify({ error: data.error?.message }), { status: 400 });
-    }
-
-    return new Response(JSON.stringify({ id: data.id }), {
-      headers: { "Content-Type": "application/json" },
+    return new Response(JSON.stringify({ url: session.url }), {
+      headers: { "content-type": "application/json" },
     });
-
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    return new Response(
+      JSON.stringify({ error: err?.message || "Stripe error" }),
+      { status: 500, headers: { "content-type": "application/json" } }
+    );
   }
 }
