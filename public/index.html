@@ -89,7 +89,8 @@ document.getElementById("checkoutForm").addEventListener("submit", async (e) => 
     if (isNaN(qty) || qty < 1) qty = 1;
     if (qty > 100) qty = 100;
 
-    const res = await fetch("/api/create-checkout-session", {
+    const res = await fetch("/create-checkout-session"
+, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ qty })
