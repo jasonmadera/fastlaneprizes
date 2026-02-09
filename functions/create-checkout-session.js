@@ -7,7 +7,7 @@ export async function onRequestPost({ request, env }) {
 
     if (contentType.includes("application/json")) {
       const body = await request.json();
-      qty = parseInt(body?.qty || 1, 10);
+      qty = parseInt(body?.quantity || 1, 10);
     }
 
     if (!Number.isFinite(qty)) qty = 1;
